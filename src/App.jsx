@@ -1,24 +1,39 @@
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Container } from "react-bootstrap";
+
 import Name from "./components/Name";
 import Price from "./components/Price";
 import Description from "./components/Description";
 import Image from "./components/Image";
 
-const firstName = "Miracle"; // leave empty like "" if you want it to say "Hello, there!"
+const firstName = "Miracle"; // or "" if you want to test "Hello, there!"
 
 function App() {
   return (
-    <div style={{ width: "300px", margin: "auto", textAlign: "center", padding: "20px", border: "1px solid lightgray" }}>
-      <Image />
-      <Name />
-      <Price />
-      <Description />
+    <Container className="my-5 d-flex flex-column align-items-center">
+      <Card style={{ width: "22rem", textAlign: "center" }}>
+        
+        <Image />
+        <Card.Body>
+          <Name />
+          <Price />
+          <Description />
+        </Card.Body>
+      </Card>
 
-      <div style={{ marginTop: "20px" }}>
-        <h3>Hello, {firstName ? firstName : "there!"}</h3>
-        {firstName && <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="hello" width="100" />}
+      {/* Greeting below the card */}
+      <div className="mt-3">
+        <h4>Hello, {firstName ? firstName : "there!"}</h4>
+        {firstName && (
+          <img
+            src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif"
+            alt="hello"
+            width="150"
+          />
+        )}
       </div>
-    </div>
+    </Container>
   );
 }
 
